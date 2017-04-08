@@ -1,29 +1,24 @@
 angular.module('app')
 
-.controller('RecipesController', function($scope, dataService) {
-    $scope.getRecipes = dataService.getRecipes(function (response) {
-        $scope.recipes = response.data
-    });
+.controller('RecipesController', function($rootScope, $location, $scope, dataService) {
     $scope.getCategories = dataService.getCategories(function (response) {
         $scope.categories = response.data
     });
-    $scope.getRecipesByCategory = function() {
-        dataService.getRecipesByCategory(function (response) {
-        $scope.recipes = response.data
+    $scope.getRecipes = function() {
+        dataService.getRecipesByCategory($scope.selectedCategory, function(response) {
+            $scope.recipes = response.data
+        });
+    };
+    $scope.editRecipe = function (recipe) {
+        $location.url('/edit/' + recipe._id);
+    };
+    $scope.deleteRecipe = function (recipe) {
+        dataService.deleteRecipeByID(recipe._id, function (response) {
+            $location.url('/')
         })
     };
-
-
+    $scope.addRecipe = function () {
+        $location.url('/add/')
+    }
 
 });
-
-// TODO Update the RecipesController controller to satisfy the following requirements:
-//
-// The list of recipes can be filtered by the selected category
-
-// When a recipe “Edit” button is clicked, the user is taken to the “Recipe Detail” screen,
-// where they can view and edit the details of the recipe.
-
-// Clicking the recipe “Delete” button deleted that recipes.
-
-// Clicking the recipe “Add” button adds a new recipe

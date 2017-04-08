@@ -1,6 +1,7 @@
 angular.module('app')
 .service('dataService', function($http) {
     'use strict';
+    let shared = {};
     this.getRecipes = function(callback) {
         $http.get('/api/recipes')
         .then(callback)
@@ -13,24 +14,30 @@ angular.module('app')
         $http.get('/api/fooditems')
         .then(callback)
     };
-    this.getRecipesByCategory = function(callback) {
-        $http.get('/api/recipes?category={category}')
+    this.getRecipesByCategory = function(categoryName, callback) {
+        $http.get('/api/recipes?category=' + categoryName)
+        .then(callback);
+    };
+    this.getRecipeByID = function(id, callback) {
+        $http.get('/api/recipes/' + id)
         .then(callback)
     };
-    this.getRecipeByID = function(callback) {
-        $http.get('/api/recipes/{id}')
+    this.putRecipeByID = function(id, recipe, callback) {
+        $http.put('/api/recipes/' + id, recipe)
         .then(callback)
     };
-    this.putRecipeByID = function(callback) {
-        $http.put('/api/recipes/{id}')
+    this.postRecipe = function(recipe, callback) {
+        $http.post('/api/recipes', recipe)
         .then(callback)
     };
-    this.postRecipes = function(callback) {
-        $http.post('/api/recipes')
+    this.deleteRecipeByID = function(id, callback) {
+        $http.delete('/api/recipes/' + id)
         .then(callback)
     };
-    this.deleteRecipeByID = function(callback) {
-        $http.delete('/api/recipes/{id}')
-        .then(callback)
+    this.getShared = function () {
+        return shared;
     };
+    this.setShared = function (obj) {
+        shared = obj;
+    }
 });

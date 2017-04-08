@@ -1,20 +1,7 @@
- Home
-Tracks
-Library
-Community
-Support
-Workspaces
-AJ Longstreet18,099
-32.0 hours
+
 Project 9
 
 Single Page App
-
-Why can’t I submit this project yet?
-You must first complete all prior Techdegree content before you can submit this project. Additionally, you cannot submit more than one project at a time.
-
-Submit for Peer Review
-Your current activity is Build a Twitter Interface.
 
 Instructions
 How you'll be graded
