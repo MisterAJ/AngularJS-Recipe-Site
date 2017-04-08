@@ -44,7 +44,7 @@ angular.module('app')
             else {
                 dataService.putRecipeByID(id, $scope.recipe,function (response) {
                     $location.url('/')
-                    })
+                })
             }
     };
 
@@ -62,7 +62,27 @@ angular.module('app')
 
     $scope.newIngredient = function () {
         "use strict";
+        $scope.recipe.ingredients.push({
+            foodItem: '',
+            condition: '',
+            amount: ''
+        })
+    };
+    
+    $scope.newStep = function () {
+        $scope.recipe.steps.push({
+            description: ''
+        })
+    };
 
+    $scope.checkRecipe = function (recipe) {
+        let validName = recipe.name.$valid;
+        let validDescription = recipe.description.$valid;
+        let validCategory = recipe.category.$valid;
+        let validPrepTime = recipe.prepTime.$valid;
+        let validCookTime = recipe.cookTime.$valid;
+        let validIngredients = recipe.ingredients.length > 0;
+        let validSteps = recipe.steps.length > 0;
     }
 
 });

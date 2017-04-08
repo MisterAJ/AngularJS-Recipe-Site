@@ -1,8 +1,9 @@
 <div ng-controller="RecipesController">
     <div class="grid-100 row controls">
         <div class="grid-30">
-            <select ng-model="selectedCategory" ng-change="getRecipes($scope.selectedCategory)">
+            <select ng-model="selectedCategory" ng-change="getRecipes(selectedCategory)">
                 <option value="">Please Select a Category</option>
+                <option value="All">All Categories</option>
                 <option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
             </select>
         </div>
@@ -33,7 +34,7 @@
                 <div class="flush-right">
                     <p>
                         <a href="" ng-click="editRecipe(recipe)"> <img src="images/edit.svg" height="12px"> Edit </a>
-                        <a href="" ng-click="deleteRecipe(recipe)" class="no-action-link"> <img src="images/delete.svg" height="12px"> Delete </a>
+                        <a href="" ng-click="deleteRecipe(recipe) " class="no-action-link"> <img src="images/delete.svg" height="12px"> Delete </a>
                     </p>
                 </div>
             </div>

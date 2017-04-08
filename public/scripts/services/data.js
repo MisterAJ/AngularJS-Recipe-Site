@@ -1,7 +1,6 @@
 angular.module('app')
 .service('dataService', function($http) {
     'use strict';
-    let shared = {};
     this.getRecipes = function(callback) {
         $http.get('/api/recipes')
         .then(callback)
@@ -34,10 +33,4 @@ angular.module('app')
         $http.delete('/api/recipes/' + id)
         .then(callback)
     };
-    this.getShared = function () {
-        return shared;
-    };
-    this.setShared = function (obj) {
-        shared = obj;
-    }
 });
