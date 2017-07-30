@@ -22,7 +22,7 @@
     </div>
 
     <div  ng-repeat="recipe in recipes" class="grid-100 row addHover">
-        <a href="#">
+        <a href="" ng-click="recipeDetail(recipe)">
             <div class="grid-70">
                 <p>
                     {{recipe.name}}

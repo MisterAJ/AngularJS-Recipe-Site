@@ -13,7 +13,6 @@ angular.module('app')
             });
         } else {
             dataService.getRecipesByCategory($scope.selectedCategory, function(response) {
-                console.log(response);
                 $scope.recipes = response.data
             });
         }
@@ -21,6 +20,10 @@ angular.module('app')
 
     $scope.editRecipe = function (recipe) {
         $location.url('/edit/' + recipe._id);
+    };
+
+    $scope.recipeDetail = function (recipe) {
+        $location.url('/' + recipe._id)
     };
 
     $scope.deleteRecipe = function (recipe) {

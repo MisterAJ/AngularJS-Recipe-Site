@@ -1,0 +1,147 @@
+<div ng-controller="RecipeDetailController" ng-init="errors = {}">
+    <div class="grid-100 row controls">
+        <div class="grid-50">
+            <h2>{{recipe.name}}</h2>
+        </div>
+        <div class="grid-50">
+            <div class="flush-right">
+                <button ng-click="cancel()">Back</button>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Name </h3>
+            </p>
+        </div>
+        <div class="grid-40">
+            <p class="detail">
+                {{recipe.name}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Description </h3>
+            </p>
+        </div>
+        <div class="grid-60">
+            <p class="detail">
+                {{recipe.description}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Category </h3>
+            </p>
+        </div>
+        <div class="grid-30">
+            <p class="detail">
+                {{recipe.category}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Prep Time </h3>
+            </p>
+        </div>
+        <div class="grid-20">
+            <p class="detail">
+                {{recipe.prepTime}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Cook Time </h3>
+            </p>
+        </div>
+        <div class="grid-20">
+            <p class="detail">
+                {{recipe.cookTime}}
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Ingredients </h3>
+            </p>
+        </div>
+        <div class="grid-30">
+            <p class="label-spacing">
+                <h3> Item </h3>
+            </p>
+        </div>
+        <div class="grid-30">
+            <p class="label-spacing">
+                <h3> Condition </h3>
+            </p>
+        </div>
+        <div class="grid-15">
+            <p class="label-spacing">
+                <h3> Amount </h3>
+            </p>
+        </div>
+        <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
+            <div class="prefix-20 grid-30">
+                <p class="detail">
+                    {{ingredient.foodItem}}
+                </p>
+            </div>
+            <div class="grid-30">
+                <p class="detail">
+                    {{ingredient.condition}}
+                </p>
+            </div>
+            <div class="grid-15">
+                <p class="detail">
+                    {{ingredient.amount}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid-100 row">
+        <div class="grid-20">
+            <p class="label-spacing">
+                <h3> Steps </h3>
+            </p>
+        </div>
+        <div class="grid-75">
+            <p class="label-spacing">
+                <h3> Description </h3>
+            </p>
+        </div>
+        <div ng-repeat="step in recipe.steps" class="step-row">
+            <div class="prefix-20 grid-75">
+                <p class="detail">
+                    {{step.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
